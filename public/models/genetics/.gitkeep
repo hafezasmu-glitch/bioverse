@@ -1,0 +1,5 @@
+Reserved for a licensed molecular DNA/chromatin GLB/glTF asset, if one is
+ever sourced. None currently ship here — see /public/models/LICENSES.md.
+The Genetics Lab renders a high-fidelity procedural double helix
+(src/components/three/DNAHelixReal.tsx) instead, which is the professional
+standard for this kind of schematic molecular visualization.

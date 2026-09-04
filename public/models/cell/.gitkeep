@@ -1,0 +1,6 @@
+Reserved for licensed cell-organelle GLB/glTF assets (nucleus, mitochondria,
+Golgi apparatus, endoplasmic reticulum, ribosomes, chloroplast, vacuole,
+etc). None currently ship here — see /public/models/LICENSES.md. Cell World
+loads assets from this directory when CELL_ASSET_MANIFEST in
+src/lib/assets/anatomyAssets.ts lists them; until then it renders the
+upgraded procedural organelles in src/components/three/CellScene.tsx.
