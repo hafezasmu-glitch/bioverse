@@ -13,4 +13,4 @@ Requires Node.js 20.9 or newer. The repository intentionally excludes `node_modu
 
 ## Important
 
-Do not use a static drag-and-drop deployment for this source ZIP. BioVerse is a Next.js application and `/human-body` uses server rendering for its optional focus query. Use Netlify's repository-based Next.js build or an equivalent supported Next.js deployment.
+This release uses Next.js static export for reliable Netlify deployment. `npm run build` creates the deployable `out/` directory; all 3D and learning interactions remain client-side.
