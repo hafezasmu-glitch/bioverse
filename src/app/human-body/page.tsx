@@ -11,14 +11,8 @@ export const metadata: Metadata = {
     "A real WebGL 3D human anatomy explorer: toggle skin, skeletal and organ layers, use the X-ray slider, explode organs apart, and animate circulation with Make It Alive.",
 };
 
-export default async function HumanBodyPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ focus?: string }>;
-}) {
+export default function HumanBodyPage() {
   const organs = getAllOrgans();
-  const { focus } = await searchParams;
-  const initialFocus = focus && organs.some((o) => o.slug === focus) ? focus : undefined;
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <BilingualPageIntro
@@ -30,7 +24,7 @@ export default async function HumanBodyPage({
         }}
       />
 
-      <HumanBodyExplorer initialFocus={initialFocus} />
+      <HumanBodyExplorer />
 
       <section className="mt-10">
         <h2 className="sr-only">Available organs / উপলভ্য অঙ্গসমূহ</h2>
