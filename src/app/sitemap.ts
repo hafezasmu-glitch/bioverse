@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
 import { getAllOrgans, getAllTerms, getAllQuizzes } from "@/lib/content";
 
-const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://biovers.netlify.app";
+export const dynamic = "force-static";
+
+const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bioverse-asmu.netlify.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
