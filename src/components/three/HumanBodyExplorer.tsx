@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment, Lightformer, ContactShadows, PerformanceMonitor } from "@react-three/drei";
 import * as THREE from "three";
@@ -31,6 +31,14 @@ export function HumanBodyExplorer({ initialFocus }: { initialFocus?: string }) {
   const [hoveredOrgan, setHoveredOrgan] = useState<string | null>(null);
   const [isolate, setIsolate] = useState(false);
   const [resetSignal, setResetSignal] = useState(0);
+
+  useEffect(() => {
+    if (initialFocus) return;
+    const focus = new URLSearchParams(window.location.search).get("focus");
+    if (!focus || !organsBySlug[focus]) return;
+    const timer = window.setTimeout(() => setSelectedOrgan(focus), 0);
+    return () => window.clearTimeout(timer);
+  }, [initialFocus, organsBySlug]);
 
   const controlsRef = useRef<OrbitControlsImpl | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
